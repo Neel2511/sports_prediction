@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympics Medal Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Olympics Medal Predictor</h1>
+        <form action="/predict" method="POST">
+            <label for="age">Age:</label>
+            <input type="number" name="age" required><br>
+
+            <label for="sex">Sex (M/F):</label>
+            <input type="text" name="sex" required><br>
+
+            <label for="height">Height (cm):</label>
+            <input type="number" name="height" required><br>
+
+            <label for="weight">Weight (lbs):</label>
+            <input type="number" name="weight" required><br>
+
+            <label for="country">Country:</label>
+            <input type="text" name="country" required><br>
+
+            <label for="city">Host City:</label>
+            <input type="text" name="city" required><br>
+
+            <label for="sport">Sport Discipline:</label>
+            <input type="text" name="sport" required><br>
+
+            <button type="submit">Predict Medal</button>
+        </form>
+    </div>
+</body>
+</html>
+
+

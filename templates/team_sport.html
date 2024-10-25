@@ -1,0 +1,172 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Sport Prediction</title>
+    <!-- Bootstrap CSS -->
+     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Team Sport Prediction</h2>
+        <p class="text-center">Enter the details to predict the match outcome.</p>
+
+        <form action="/predict_team" method="POST">
+            <div class="mb-3">
+                <label for="team1" class="form-label">Team 1</label>
+                <input type="text" class="form-control" id="team1" name="team1" placeholder="Enter Team 1 name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="team2" class="form-label">Team 2</label>
+                <input type="text" class="form-control" id="team2" name="team2" placeholder="Enter Team 2 name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="venue" class="form-label">Venue</label>
+                <input type="text" class="form-control" id="venue" name="venue" placeholder="Enter match venue" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="timeOfDay" class="form-label">Time of Day</label>
+                <select class="form-select" id="timeOfDay" name="timeOfDay" required>
+                    <option selected disabled>Select time of day</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Night">Night</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="dayCode" class="form-label">Day Code</label>
+                <select class="form-select" id="dayCode" name="dayCode" required>
+                    <option selected disabled>Select day of match</option>
+                    <option value="Weekday">Weekday</option>
+                    <option value="Weekend">Weekend</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Sport Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Team Sport Prediction</h2>
+        <p class="text-center">Enter the details to predict the match outcome.</p>
+
+        <form action="/predict_team" method="POST">
+            <!-- Team 1: Home Team -->
+            <label for="team1">Team 1 (Home Team):</label>
+            <input type="text" class="form-control" id="team1" name="team1" placeholder="Enter home team name" required>
+
+            <!-- Team 2: Away Team -->
+            <label for="team2">Team 2 (Away Team):</label>
+            <input type="text" class="form-control" id="team2" name="team2" placeholder="Enter away team name" required>
+
+            <!-- Match Time -->
+            <label for="time">Match Time (24-hour format):</label>
+            <input type="number" class="form-control" id="time" name="time" placeholder="Enter match time (e.g., 16 for 4:00 PM)" required>
+
+            <!-- Day of the Week -->
+            <label for="day_of_week">Day of the Week (0=Monday, 6=Sunday):</label>
+            <select class="form-select" id="day_of_week" name="day_of_week" required>
+                <option value="0">Monday</option>
+                <option value="1">Tuesday</option>
+                <option value="2">Wednesday</option>
+                <option value="3">Thursday</option>
+                <option value="4">Friday</option>
+                <option value="5">Saturday</option>
+                <option value="6">Sunday</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary mt-3">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
