@@ -442,6 +442,20 @@ legend + * {
   direction: ltr;
 }
 */
+<<<<<<< HEAD
+
+.custom-link {
+  color: inherit; /* Inherit color from the parent container */
+  text-decoration: none; /* Remove underline */
+}
+
+.custom-link:hover {
+  color: inherit; /* Keep color the same on hover */
+  text-decoration: none; /* Keep no underline on hover */
+}
+
+=======
+>>>>>>> origin/master
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
